@@ -7,7 +7,7 @@ module Responses
     API_PATH = BASE_PATH + '/api.php'
     CATEGORY_API_PARAMS = {'action': 'query', 'list': 'categorymembers', 'cmlimit': 'max', 'cmprop': 'title',
                            'format': 'json', 'cmtitle': ''}
-    RESPONSE_REGEX = /([a-z0-9_\.-\[\]\'\!\-]+)/i
+    RESPONSE_REGEX = /([a-z0-9_\.-\[\]\'\!\-\%\u0401\u0451\u0410-\u044f\u4E00-\uFA29\uE7C7-\uE7F3\uAC00-\uD7A3]+)/i
     
     def initialize
       @connection = create_connection
@@ -134,6 +134,9 @@ module Responses
         ti_chat_wheel = ti.parent.next_element.children[1].xpath('//td//ul//li/text()')
         
         chat_wheel = chat_wheel_html.xpath('//p//a[starts-with(text(), "The International")]')[index].parent.next_element.children[1].xpath('.//td//ul//li/text()')
+        chat_wheel_span = chat_wheel_html.xpath('//p//a[starts-with(text(), "The International")]')[index].parent.next_element.children[1].xpath('.//td//ul//li//span/text()')
+        chat_wheel = chat_wheel + chat_wheel_span
+        
         chat_wheel_list.push([ti_event])
         
         chat_wheel.each do |response|
