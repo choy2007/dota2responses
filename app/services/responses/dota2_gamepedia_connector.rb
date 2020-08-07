@@ -177,7 +177,7 @@ module Responses
     end
     
     def parse_response(response)
-      response.scan(RESPONSE_REGEX).flatten.join(' ')
+      response.scan(RESPONSE_REGEX).flatten.join(' ').gsub('resp u', '')
     end
     
     def get_successful_connection_result
