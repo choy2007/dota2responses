@@ -1,0 +1,19 @@
+.row
+	- if message.user == current_user
+		.col.offset-9
+			.message.mb-1.float-right
+				.current-user-content.float-right
+					= message.content
+				%br
+				%small.sender.font-weight-light.float-right
+					= message.user.username
+	- else
+		.col
+			.message.mb-1.float-left
+				.content.float-left
+					= message.content
+				%br
+				%small.sender.font-weight-light.float-left
+					= message.user.username
+				
+				

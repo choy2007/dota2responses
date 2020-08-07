@@ -1,0 +1,8 @@
+$( '#chat-wheel-responses' ).html(
+	'<ul class="list-group list-group-flush">' 						 +
+		'<% @chat_wheel_responses.each do |response|  %>' 	 +
+			'<li class="list-group-item">' 				 						 +
+	 			'<%= button_tag response, type: :submit, value: response, name: 'message[content]', class: 'btn btn-block btn-light'  %>'	+
+	    '</li>'   +
+		'<% end %>' +
+	'</ul>');

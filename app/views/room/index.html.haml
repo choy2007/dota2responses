@@ -1,0 +1,32 @@
+#user-id{"data-user-id" => "#{current_user.id}"}
+
+.container-fluid
+	.row
+		.col-3.pt-3.border-right
+			.responses-panel
+				.row.p-3
+					.col.text-center
+						Hello,
+						%strong
+							= current_user.username
+						= select_tag :hero, options_for_select(@heroes), include_blank: 'Select a hero', class: 'form-control mt-2'
+				.row
+					.col
+						= form_for @message, remote: true do
+							= render partial: 'responses/index'
+				%hr
+				.row.p-3
+					.col.text-center
+						= select_tag :event, options_for_select(@events), include_blank: 'Select a TI', class: 'form-control'
+				.row
+					.col
+						= form_for @message, remote: true do
+							= render partial: 'responses/chat_wheel'
+					
+					
+		.col-9.pt-3
+			.responses-chat
+				- @messages.each do |message|
+					= render 'messages/index', message: message
+				#messages
+			

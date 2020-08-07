@@ -1,0 +1,1 @@
+Responses::Dota2GamepediaConnector.new.create_heroes_and_responses

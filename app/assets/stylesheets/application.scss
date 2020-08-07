@@ -1,0 +1,30 @@
+@import "bootstrap/scss/bootstrap";
+
+.responses-panel {
+	height: 100vh;
+	overflow-y: scroll;
+}
+
+.responses-chat {
+	height: 100vh;
+	overflow-y: scroll;
+	
+	.message {
+		.content {
+			background-color: #eeeeee;
+			padding: 8px 16px;
+			border-radius: 15px;
+		}
+
+		.current-user-content {
+			background-color: #a72d16;
+			padding: 8px 16px;
+			border-radius: 15px;
+			color: #ffffff;
+		}
+		.sender {
+			font-size: 0.8rem;
+			padding: 10px;
+		}
+	}
+}
