@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Specify AnyCable WebSocket server URL to use by JS client
   config.after_initialize do
-    config.action_cable.url = "ws://dota2responses.heroku.com/cable"
+    config.action_cable.url = "ws://dota2responses.herokuapp.com/cable"
   end
   # Settings specified here will take precedence over those in config/application.rb.
 
