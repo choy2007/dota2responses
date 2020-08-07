@@ -37,7 +37,10 @@ $( document ).on( 'turbolinks:load', function(){
 			type: 'GET',
 			beforeSend: function() {
 	    	$( '#hero-responses-loading' ).show();
-	    }
+	    },
+			success: function() {
+				$( '#hero-responses-loading' ).hide();
+			}
 		})
 	})
 	
@@ -47,7 +50,10 @@ $( document ).on( 'turbolinks:load', function(){
 			type: 'GET',
 			beforeSend: function() {
 	    	$( '#chat-wheel-responses-loading' ).show();
-	    }
+	    },
+			success: function() {
+				$(' #chat-wheel-responses-loading' ).hide();
+			}
 		})
 	})
 })
