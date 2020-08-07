@@ -28,24 +28,33 @@ consumer.subscriptions.create("RoomChannel", {
 });
 
 $( document ).on( 'turbolinks:load', function(){
+	$( '#hero-responses-loading' ).hide();
+	$( '#chat-wheel-responses-loading' ).hide();
+	
 	$( '#hero' ).on( 'change', function(){
 		$.ajax({
 			url: '/responses?name=' + $(this).val(),
-			type: 'GET'
+			type: 'GET',
+			beforeSend: function() {
+	    	$( '#hero-responses-loading' ).show();
+	    }
 		})
 	})
 	
 	$( '#event' ).on( 'change', function(){
 		$.ajax({
 			url: '/chat_wheel?name=' + $(this).val(),
-			type: 'GET'
+			type: 'GET',
+			beforeSend: function() {
+	    	$( '#chat-wheel-responses-loading' ).show();
+	    }
 		})
 	})
 })
 
 $(document).on( 'click', 'button[name="message[content]"]', function(){
 	let response = $(this).val()
-	let html = "<div class='row'>\n<div class='col-3 offset-9'>\n<div class='message mb-3 float-right'>\n<div class='current-user-content float-right'>\n"+ $(this).val()+ "\n</div>\n<br>\n<small class='sender font-weight-light float-right'>\nGeneRaL\n</small>\n</div>\n</div>\n</div>\n"
+	let html = "<div class='row'>\n<div class='col-3 offset-9'>\n<div class='message mb-3 float-right'>\n<div class='current-user-content float-right'>\n"+ $(this).val()+ "\n</div>\n<br>"
 	
 	const messageContainer = document.getElementById( 'messages' )
 	messageContainer.innerHTML = messageContainer.innerHTML + html

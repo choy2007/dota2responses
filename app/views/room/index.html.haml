@@ -26,7 +26,8 @@
 					
 		.col-9.pt-3
 			.responses-chat
-				- @messages.each do |message|
-					= render 'messages/index', message: message
-				#messages
+				.pt-3
+					- @messages.each do |message|
+						= render 'messages/index', message: message
+					#messages
 			
